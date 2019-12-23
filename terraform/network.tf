@@ -1,3 +1,7 @@
+resource "openstack_networking_floatingip_v2" "test_floatip_bootstrap" {
+    pool = "public-network"
+}
+
 resource "openstack_networking_network_v2" "test_network_01" {
     name           = "tf_test_network"
     admin_state_up = "true"
