@@ -23,16 +23,7 @@ resource "openstack_networking_router_interface_v2" "test_router_interface_01" {
     subnet_id = openstack_networking_subnet_v2.test_subnet_01.id
 }
 
-resource "openstack_compute_secgroup_v2" "test_secgroup_01" {
-    name = "test_secgroup_01"
-    description = "Login over ssh"
-    rule {
-        from_port   = 22
-        to_port     = 22
-        ip_protocol = "tcp"
-        cidr        = "0.0.0.0/0"
-    }
-}
+
 
 resource "openstack_networking_port_v2" "test_port_01" {
     name               = "test_port_01"

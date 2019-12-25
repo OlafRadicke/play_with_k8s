@@ -1,4 +1,4 @@
-#  node 1
+#  node 1 #####################################################################
 
 resource "openstack_networking_port_v2" "test_k3s_server_port_01" {
     name = "test_port_01"
@@ -21,9 +21,15 @@ resource "openstack_compute_instance_v2" "test_k3s_server_01" {
     network {
         port = openstack_networking_port_v2.test_k3s_server_port_01.id
     }
+ 
+    # provisioner "local-exec" {
+    #     command  = "sudo chmod o+w /etc/resolv.conf && sudo echo 'nameserver 8.8.8.8' > /etc/resolv.conf && sudo echo 'search localdomain' > /etc/resolv.conf && sudo chmod o-w /etc/resolv.conf "
+    #     on_failure = continue
+    # }
+
 }
 
-# node 2
+# node 2 #####################################################################
 
 resource "openstack_networking_port_v2" "test_k3s_server_port_02" {
     name = "test_port_01"
@@ -46,9 +52,14 @@ resource "openstack_compute_instance_v2" "test_k3s_server_02" {
     network {
         port = openstack_networking_port_v2.test_k3s_server_port_02.id
     }
+
+    # provisioner "local-exec" {
+    #     command  = "sudo chmod o+w /etc/resolv.conf && sudo echo 'nameserver 8.8.8.8' > /etc/resolv.conf && sudo echo 'search localdomain' > /etc/resolv.conf && sudo chmod o-w /etc/resolv.conf "
+    #     on_failure = continue
+    # }
 }
 
-# node 3
+# node 3 #####################################################################
 
 resource "openstack_networking_port_v2" "test_k3s_server_port_03" {
     name = "test_port_01"
@@ -71,4 +82,9 @@ resource "openstack_compute_instance_v2" "test_k3s_server_03" {
     network {
         port = openstack_networking_port_v2.test_k3s_server_port_03.id
     }
+
+    # provisioner "local-exec" {
+    #     command  = "sudo chmod o+w /etc/resolv.conf && sudo echo 'nameserver 8.8.8.8' > /etc/resolv.conf && sudo echo 'search localdomain' > /etc/resolv.conf && sudo chmod o-w /etc/resolv.conf "
+    #     on_failure = continue
+    # }
 }
