@@ -1,3 +1,10 @@
+
+
+resource "openstack_compute_keypair_v2" "test_keypair_02" {
+    name       = "test_keypair_02"
+    public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC+qcIyLzJYj7a1SE4tXNGxfhjHcnLng82rXN7LiGr706ejgbrHFaRptr1IVPqe9h5Xt7eTf7M2SeCSr2ZFAC20Ws2HExTYR/5q0KEppvduXUn9CmYRyUVXB8UmYhmP943sxQVbBpOyITGMRXn9vVW2yIiTdp6JJ8Ohs0oiVOOTrWvo2O2qM25bYtwJN5PO2fJviDIaYP0Rq6fBys4XkV6OJGi6KA+7IWgRwmmk5AapxLn1eA5RRd+YrhL3H3nSGw2J8veHk5v7cmVv6qhsMAyKwRRTozCu8zMiWS5JuTBOhycPXlSq+/pp1isl+15y/NN02prWB01hNhKJV2Obg7cQebXKY3176qGBpeBNLURjiquvSTvFHO/ZR2hR8RvRMJ70OmVDYw9pvnp5BTz9fWUaqNPK/J7d/R4TwA/CAjEh74wUGN6aXfloSmi85LKB+3Qsf0k4ToVOga1Y4YaPRkBJNJtfQvD7SZUAEuyXPgVnLVhcsRAlOUv2WY7CdOBilmM="
+}
+
 #  node 1 #####################################################################
 
 resource "openstack_networking_port_v2" "test_k3s_server_port_01" {
@@ -17,7 +24,7 @@ resource "openstack_compute_instance_v2" "test_k3s_server_01" {
     availability_zone = "HetznerNBG4"
     flavor_id = "a974d4e8-d452-46f3-b8d2-d53b44e2452c"
     security_groups = [openstack_compute_secgroup_v2.test_secgroup_01.id]
-    key_pair = "test_keypair_01"
+    key_pair = "test_keypair_02"
     network {
         port = openstack_networking_port_v2.test_k3s_server_port_01.id
     }
@@ -26,8 +33,8 @@ resource "openstack_compute_instance_v2" "test_k3s_server_01" {
     #     command  = "sudo chmod o+w /etc/resolv.conf && sudo echo 'nameserver 8.8.8.8' > /etc/resolv.conf && sudo echo 'search localdomain' > /etc/resolv.conf && sudo chmod o-w /etc/resolv.conf "
     #     on_failure = continue
     # }
-
 }
+
 
 # node 2 #####################################################################
 
@@ -48,7 +55,7 @@ resource "openstack_compute_instance_v2" "test_k3s_server_02" {
     availability_zone = "HetznerNBG4"
     flavor_id = "a974d4e8-d452-46f3-b8d2-d53b44e2452c"
     security_groups = [openstack_compute_secgroup_v2.test_secgroup_01.id]
-    key_pair = "test_keypair_01"
+    key_pair = "test_keypair_02"
     network {
         port = openstack_networking_port_v2.test_k3s_server_port_02.id
     }
@@ -78,7 +85,7 @@ resource "openstack_compute_instance_v2" "test_k3s_server_03" {
     availability_zone = "HetznerNBG4"
     flavor_id = "a974d4e8-d452-46f3-b8d2-d53b44e2452c"
     security_groups = [openstack_compute_secgroup_v2.test_secgroup_01.id]
-    key_pair = "test_keypair_01"
+    key_pair = "test_keypair_02"
     network {
         port = openstack_networking_port_v2.test_k3s_server_port_03.id
     }
