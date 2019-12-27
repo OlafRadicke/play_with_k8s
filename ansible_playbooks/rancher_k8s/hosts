@@ -1,0 +1,12 @@
+[rancher_bootstrap]
+bootstrap-server  ansible_host=185.11.255.171 ansible_user=centos ansible_become=true
+
+[k8s_node]
+k8s_01 ansible_host=192.168.19.101
+k8s_02 ansible_host=192.168.19.102
+k8s_03 ansible_host=192.168.19.103
+
+[k8s_node:vars]
+ansible_user=centos
+ansible_become=true
+rancher_cluster_token=jdgfudfuheduihgerjb

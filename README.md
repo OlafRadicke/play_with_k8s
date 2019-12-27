@@ -1,6 +1,6 @@
 # Mission #
 
-Playing around with...
+A little fooling around with...
 
 * OpenStack
 * Kubernetes
@@ -62,6 +62,15 @@ Clean up / destroy setup enter:
 ```bash
 terraform destroy
 ```
+
+# Ansible playbook #
+
+Switch in directory ./ansible_playbooks Enter
+```bash
+ansible-playbook  --ask-vault-pass -i hosts ./setup.yml
+```
+The private ssh key in the role bootstrap_private_key is encrypted. You can 
+overwrite this file with your own ssh key and your own password.
 
 
 # External docs #

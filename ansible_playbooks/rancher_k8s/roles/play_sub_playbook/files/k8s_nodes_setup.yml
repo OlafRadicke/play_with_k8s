@@ -1,0 +1,8 @@
+---
+
+- name: Setup k8s nodes
+  hosts: k8s_node
+  roles:
+    - dns_client
+    - docker_env
+    - rancher_k8s_node

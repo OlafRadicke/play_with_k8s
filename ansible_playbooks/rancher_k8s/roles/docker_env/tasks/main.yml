@@ -1,0 +1,28 @@
+---
+
+- name: deinstall old docker
+  package:
+    name: 
+        - docker
+        - docker-common
+    state: absent
+
+- name: Add repository
+  yum_repository:
+    name: docker
+    description: Docker YUM repo
+    baseurl: https://download.docker.com/linux/centos/7/$basearch/stable
+    gpgkey: https://download.docker.com/linux/centos/gpg
+    gpgcheck: yes
+
+- name: install docker
+  package:
+    name: 
+        - docker-ce
+        - python-docker-py
+    state: present      
+
+- name: Make sure a service is running
+  systemd:
+    state: started
+    name: docker
