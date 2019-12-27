@@ -4,6 +4,7 @@
   package:
     name: 
         - git
+        - ansible
     state: present
 
 - name: clone repo on bootstrap node
@@ -17,6 +18,6 @@
       dest: /srv/play_with_k8s/ansible_playbooks/rancher_k8s/k8s_nodes_setup.yml
     
 - name: start sub playbook
-  shell: "ansible-playbook -i ./hosts k8s_nodes_setup.yml"
+  shell: "export ANSIBLE_HOST_KEY_CHECKING=false && ansible-playbook -i ./hosts k8s_nodes_setup.yml"
   args:
     chdir: "/srv/play_with_k8s/ansible_playbooks/rancher_k8s/"

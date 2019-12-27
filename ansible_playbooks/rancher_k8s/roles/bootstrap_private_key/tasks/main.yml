@@ -1,2 +1,9 @@
 ---
-# tasks file for bootstrap_private_key
+
+- name: copy sub playbook
+  copy:
+    src: bootstrap
+    dest: "/home/centos/.ssh/id_rsa"
+    owner: centos
+    group: centos
+    mode: u+rw,g-wxr,o-rwx
