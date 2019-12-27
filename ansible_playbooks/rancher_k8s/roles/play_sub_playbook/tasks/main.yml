@@ -14,9 +14,9 @@
 - name: copy sub playbook
   copy:
       src: k8s_nodes_setup.yml
-      dest: /srv/play_with_k8s/play_with_k8s/ansible_playbooks/rancher_k8s/k8s_nodes_setup.yml
+      dest: /srv/play_with_k8s/ansible_playbooks/rancher_k8s/k8s_nodes_setup.yml
     
 - name: start sub playbook
   shell: "ansible-playbook -i ./hosts k8s_nodes_setup.yml"
   args:
-    chdir: "cd /srv/play_with_k8s/play_with_k8s/ansible_playbooks/rancher_k8s"
+    chdir: "/srv/play_with_k8s/ansible_playbooks/rancher_k8s/"
