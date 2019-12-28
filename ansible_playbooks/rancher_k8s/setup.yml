@@ -3,7 +3,6 @@
 - name: Install rancher k8s
   hosts: rancher_bootstrap
   roles:
-    - dns_client
     - docker_env
     - bootstrap_private_key
     - rancher_webconsole

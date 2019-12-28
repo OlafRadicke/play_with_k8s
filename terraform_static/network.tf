@@ -5,12 +5,14 @@ resource "openstack_networking_floatingip_v2" "test_floatip_bootstrap" {
 resource "openstack_networking_network_v2" "test_network_01" {
     name           = "tf_test_network"
     admin_state_up = "true"
+    # dns_domain     = 8.8.8.8
 }
 
 resource "openstack_networking_subnet_v2" "test_subnet_01" {
-    network_id = openstack_networking_network_v2.test_network_01.id
-    cidr       = "192.168.19.0/24"
-    ip_version = 4
+    network_id      = openstack_networking_network_v2.test_network_01.id
+    cidr            = "192.168.19.0/24"
+    ip_version      = 4
+    dns_nameservers = ["8.8.8.8"]
 }
 
 resource "openstack_networking_router_v2" "test_router_01" {
