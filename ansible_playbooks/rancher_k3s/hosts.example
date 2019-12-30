@@ -1,0 +1,20 @@
+[rancher_bootstrap]
+bootstrap-server  ansible_host=185.11.255.136 ansible_user=centos ansible_become=true
+
+[master]
+node_01 ansible_host=192.168.19.101
+[master:vars]
+ansible_user=centos
+ansible_become=true
+
+[node]
+node_02 ansible_host=192.168.19.102
+node_03 ansible_host=192.168.19.103
+
+[node:vars]
+ansible_user=centos
+ansible_become=true
+
+[k3s-cluster:children]
+master
+node

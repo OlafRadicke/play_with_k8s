@@ -37,12 +37,6 @@ resource "openstack_compute_secgroup_v2" "test_secgroup_03" {
     name = "test_secgroup_03"
     description = "Webconsole"
     rule {
-        from_port = 8080
-        to_port = 8080
-        ip_protocol = "tcp"
-        cidr = "0.0.0.0/0"
-    }
-    rule {
         from_port = 6443
         to_port = 6443
         ip_protocol = "tcp"
@@ -52,6 +46,12 @@ resource "openstack_compute_secgroup_v2" "test_secgroup_03" {
         from_port = 8472
         to_port = 8472
         ip_protocol = "udp"
+        cidr = "0.0.0.0/0"
+    }
+    rule {
+        from_port = 8080
+        to_port = 8080
+        ip_protocol = "tcp"
         cidr = "0.0.0.0/0"
     }
     rule {

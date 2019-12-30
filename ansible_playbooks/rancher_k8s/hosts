@@ -1,5 +1,5 @@
 [rancher_bootstrap]
-bootstrap-server  ansible_host=185.11.255.171 ansible_user=centos ansible_become=true
+bootstrap-server  ansible_host=185.11.255.136 ansible_user=centos ansible_become=true
 
 [k8s_node]
 k8s_01 ansible_host=192.168.19.101

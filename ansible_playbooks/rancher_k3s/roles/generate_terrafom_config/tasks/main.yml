@@ -9,14 +9,13 @@
 - name: Generat terraform configuration
   template:
       src: "{{ item }}"
-      dest: "{{ terrafom_generics }}"
+      dest: "{{ terrafom_generics }}{{ item }}"
   loop:
     - "bootstrap_node.tf"
     - "cluster_nodes.tf"
     - "main_setup.tf"
     - "network.tf"
     - "secgroup.tf"
-    - "secret_variable.tf"
     
 - name: Copy OpenStack init script
   copy:

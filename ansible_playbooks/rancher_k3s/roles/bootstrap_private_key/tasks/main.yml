@@ -1,0 +1,17 @@
+---
+
+- name: copy private ssh key to user centos
+  copy:
+    src: bootstrap
+    dest: "/home/centos/.ssh/id_rsa"
+    owner: centos
+    group: centos
+    mode: u+rw,g-wxr,o-rwx
+
+- name: copy private ssh key to user root
+  copy:
+    src: bootstrap
+    dest: "/root/.ssh/id_rsa"
+    owner: centos
+    group: centos
+    mode: u+rw,g-wxr,o-rwx

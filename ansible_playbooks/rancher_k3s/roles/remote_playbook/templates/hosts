@@ -1,0 +1,15 @@
+
+[master]
+{% for item in masters %}
+{{ item.name}} ansible_host={{ item.ip }}
+{% endfor %}
+
+[node]
+{% for item in notes %}
+{{ item.name}} ansible_host={{ item.ip }}
+{% endfor %}
+
+
+[k3s-cluster:children]
+master
+node

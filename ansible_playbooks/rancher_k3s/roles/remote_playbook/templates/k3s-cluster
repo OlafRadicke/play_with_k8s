@@ -1,0 +1,4 @@
+k3s_version: v0.8.1
+ansible_user: "{{ ansible_user }}"
+systemd_dir: /etc/systemd/system
+master_ip: "{{  masters[0].ip }}"
