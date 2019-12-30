@@ -1,0 +1,5 @@
+---
+
+terrafom_generics: "/tmp/ansible-terraform/"
+bootstrap_server_name: "test_bootstrap_server"
+bootstrap_server_image: "Centos 7"

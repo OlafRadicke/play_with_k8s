@@ -1,0 +1,29 @@
+---
+
+- name: Create a directory for terrafom configs
+  file:
+      path: "{{ terrafom_generics }}"
+      state: directory
+      mode: '0755'
+
+- name: Generat terraform configuration
+  template:
+      src: "{{ item }}"
+      dest: "{{ terrafom_generics }}"
+  loop:
+    - "bootstrap_node.tf"
+    - "cluster_nodes.tf"
+    - "main_setup.tf"
+    - "network.tf"
+    - "secgroup.tf"
+    - "secret_variable.tf"
+    
+- name: Copy OpenStack init script
+  copy:
+      src: 4368-openstack-e31d5-openrc.sh
+      dest: "{{ terrafom_generics }}"
+
+- name: Try to run terraform
+  terraform:
+      project_path: "{{ terrafom_generics }}"
+      state: present

@@ -1,0 +1,7 @@
+---
+
+- name: Create terraform configuration
+  hosts: terraform
+  connection: local
+  roles:
+    - generate_terrafom_config
