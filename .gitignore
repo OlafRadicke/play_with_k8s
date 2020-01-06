@@ -1,0 +1,4 @@
+4368-openstack-e31d5-openrc.sh
+ansible_playbooks/rancher_k3s/group_vars
+ansible_playbooks/rancher_k3s/host_vars
+ansible_playbooks/rancher_k3s/hosts

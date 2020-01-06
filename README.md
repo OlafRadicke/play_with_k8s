@@ -6,93 +6,34 @@ A little fooling around with...
 * OpenStack
 * Kubernetes
 * Terraform
+* Helm
 * ...
 
-OpenStack client install
-========================
+cheat sheet
+-----------
 
-```bash
-sudo  dnf install python-openstackclient
-```
-
-Check available flavors
------------------------
-
-Enter:
-```bash
-openstack flavor list
-```
-
-Check available images
-----------------------
-
-Enter:
-```bash
-openstack image list
-```
-
-Check available availability zones
-----------------------------------
-
-Enter:
-
-```bash 
-openstack availability zone list
-```
-
-Terraform
-=========
-
-Terraform install
------------------
-
-* [download](https://www.terraform.io/downloads.html)
-
-```bash
-unzip ./terraform_0.12.18_linux_amd64.zip
-sudo mv ./terraform /usr/local/bin/
-```
-
-Basic commands
---------------
-
-Init enter:
-
-```bash
-terraform init
-```
-
-Run / roll out setup with terraform enter:
-
-```bash
-terraform apply
-```
-
-Clean up / destroy setup enter:
-
-```bash
-terraform destroy
-```
+* [Helm](cheat_sheet/helm.md)
+* [kubectl (k8s/k3s)](cheat_sheet/kubectl.md)
+* [OpenStack](cheat_sheet/openstack.md)
+* [Terraform](cheat_sheet/terraform.md)
 
 Ansible playbooks
-=================
+-----------------
 
 See readme files in the sub deriectories under dirktory /ansible_playbooks
 
-rancher_k3s
------------
+### Directory rancher_k3s ###
 
 This playbook roll out nodes on OpenStack with terraform and set up a bootstrap
 node for run a k3s install with an external ansible-playbook.
 
-rancher_k8s
------------
+### Directory rancher_k8s ###
 
 Setup a rancher bootstrap note for an k8s cluster.
 
 
 External docs
-=============
+-------------
 
 * IaaS / infrastruktur as code
   * [Terraform OpenStack Provider](https://www.terraform.io/docs/providers/openstack/index.html)

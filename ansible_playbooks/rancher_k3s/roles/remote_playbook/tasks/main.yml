@@ -1,0 +1,35 @@
+---
+
+- name: install git
+  package:
+    name: 
+        - git
+        - ansible
+    state: present
+
+- name: clone repo on bootstrap node
+  git:
+    repo: 'https://github.com/rancher/k3s.git'
+    dest: /srv/k3s
+    force: yes
+    
+- name: copy patched of download task file to bootstrap node
+  copy:
+    src: download_task_patch
+    dest: /srv/k3s/contrib/ansible/roles/download/tasks/main.yml
+
+- name: Copy group_vars file to bootstrap node
+  template:
+    src: "k3s-cluster"
+    dest: "/srv/k3s/contrib/ansible/group_vars/k3s-cluster"
+
+- name: Copy inventory to bootstrap node
+  template:
+    src: "hosts"
+    dest: "/srv/k3s/contrib/ansible/hosts"
+
+- name: start sub playbook
+  shell: "export ANSIBLE_HOST_KEY_CHECKING=false && ansible-playbook -i ./hosts site.yml"
+  args:
+    chdir: "/srv/k3s/contrib/ansible/"
+  become: no
