@@ -26,10 +26,12 @@ See readme files in the sub deriectories under dirktory /ansible_playbooks
 
 This playbook roll out nodes on OpenStack with terraform and set up a bootstrap
 node for run a k3s install with an external ansible-playbook.
+See the [README](ansible_playbooks/rancher_k3s/README.md)
 
 ### Directory rancher_k8s ###
 
-Setup a rancher bootstrap note for an k8s cluster.
+Setup a rancher bootstrap note for a k8s cluster. See the 
+[README](ansible_playbooks/rancher_k8s/README.md)
 
 
 External docs
