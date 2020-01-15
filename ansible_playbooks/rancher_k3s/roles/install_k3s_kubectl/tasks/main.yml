@@ -1,0 +1,16 @@
+---
+
+- name: Add k8s repo
+  yum_repository:
+      name: k8s
+      description: K8s repo
+      file: external_k8s_repos
+      baseurl: "https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64"
+      gpgcheck: yes
+      gpgkey: "https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg"
+
+- name: install kubectl
+  package:
+    name: kubernetes-client
+    state: present
+
