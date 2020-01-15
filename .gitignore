@@ -2,3 +2,8 @@
 ansible_playbooks/rancher_k3s/group_vars
 ansible_playbooks/rancher_k3s/host_vars
 ansible_playbooks/rancher_k3s/hosts
+ansible_playbooks/rancher_k3s/terraform.tfstate
+terraform_static/.terraform/
+terraform_static/secret_variable.tf
+terraform_static/terraform.tfstate
+terraform_static/terraform.tfstate.backup
