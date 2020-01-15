@@ -4,3 +4,5 @@
   hosts: rancher_bootstrap
   roles:
     - remote_playbook
+    # - copy_k3s_config_to_control_host
+

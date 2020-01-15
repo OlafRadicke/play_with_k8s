@@ -35,7 +35,7 @@ resource "openstack_compute_secgroup_v2" "test_secgroup_02" {
 
 resource "openstack_compute_secgroup_v2" "test_secgroup_03" {
     name = "test_secgroup_03"
-    description = "Webconsole"
+    description = "Cluster communication"
     rule {
         from_port = 6443
         to_port = 6443

@@ -9,7 +9,7 @@
 
 - name: clone repo on bootstrap node
   git:
-    repo: 'https://github.com/rancher/k3s.git'
+    repo: 'https://github.com/OlafRadicke/k3s.git'
     dest: /srv/k3s
     force: yes
     
@@ -28,9 +28,9 @@
     src: "hosts"
     dest: "/srv/k3s/contrib/ansible/hosts"
 
-# - name: start sub playbook
-#   shell: "export ANSIBLE_HOST_KEY_CHECKING=false && ansible-playbook -i ./hosts site.yml"
-#   args:
-#     chdir: "/srv/k3s/contrib/ansible/"
-#   become: no
-#   ignore_errors: yes
+- name: start sub playbook
+  shell: "export ANSIBLE_HOST_KEY_CHECKING=false && ansible-playbook -i ./hosts site.yml"
+  args:
+    chdir: "/srv/k3s/contrib/ansible/"
+  become: no
+  ignore_errors: yes
