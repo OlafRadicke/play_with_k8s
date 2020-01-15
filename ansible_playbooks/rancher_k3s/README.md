@@ -4,7 +4,17 @@ Playbook rancher_k3s
 Mission
 -------
 
-Rollout a Rancher k3s setup in a OpenStack environment.
+Rollout a bootstrap node and a Rancher k3s setup in a OpenStack environment.
+
+requirements
+------------
+
+* On the ansible node:
+  * Python
+  * Ansible
+  * A installed terraform (See: [cheat sheet](../../cheat_sheet/terraform.md))
+
+
 
 Step 1: generate a terraform configuration
 ------------------------------------------
@@ -39,6 +49,8 @@ And start creating:
 ansible-playbook -i ./hosts ./setup_terraform.yml
 
 ```
+
+This Playbook kreates a terraform configuration unter "/tmp/ansible-terraform/" and rolled it out with terraform.
 
 For clean up the OpenStack setup, go to /tmp/ansible-terraform/ and enter:
 
