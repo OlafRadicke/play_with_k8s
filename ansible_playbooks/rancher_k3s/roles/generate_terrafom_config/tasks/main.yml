@@ -26,3 +26,4 @@
   terraform:
       project_path: "{{ terrafom_generics }}"
       state: present
+      force_init: true

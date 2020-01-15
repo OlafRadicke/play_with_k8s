@@ -116,7 +116,6 @@ Error: Kubernetes cluster unreachable
 ```
 
 Enter this to fix this:
-
 ```bash
 bash -c 'export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && helm install my-postgresql-installation stable/postgresql  '
 ```
@@ -127,4 +126,5 @@ External links
 --------------
 
 * [Helm Chart for Gitea as example](https://hub.helm.sh/charts/k8s-land/gitea)
+* [Helm Chart for AWX as example](https://hub.helm.sh/charts/lifen/awx)
 * [How to Create Your First Helm Chart](https://docs.bitnami.com/kubernetes/how-to/create-your-first-helm-chart/)

@@ -28,8 +28,9 @@
     src: "hosts"
     dest: "/srv/k3s/contrib/ansible/hosts"
 
-- name: start sub playbook
-  shell: "export ANSIBLE_HOST_KEY_CHECKING=false && ansible-playbook -i ./hosts site.yml"
-  args:
-    chdir: "/srv/k3s/contrib/ansible/"
-  become: no
+# - name: start sub playbook
+#   shell: "export ANSIBLE_HOST_KEY_CHECKING=false && ansible-playbook -i ./hosts site.yml"
+#   args:
+#     chdir: "/srv/k3s/contrib/ansible/"
+#   become: no
+#   ignore_errors: yes

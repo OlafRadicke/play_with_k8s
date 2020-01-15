@@ -4,3 +4,4 @@
   hosts: rancher_bootstrap
   roles:
     - bootstrap_private_key
+    - install_k3s_kubectl

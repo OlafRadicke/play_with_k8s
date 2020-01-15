@@ -13,3 +13,7 @@
 [k3s-cluster:children]
 master
 node
+
+[k3s-cluster:vars]
+ansible_user={{ ansible_user }}
+ansible_become=true
