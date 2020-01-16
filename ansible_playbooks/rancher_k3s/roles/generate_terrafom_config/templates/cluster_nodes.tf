@@ -15,7 +15,7 @@ resource "openstack_networking_port_v2" "{{ item.name }}_port_01" {
     name = "{{ item.name }}_port_01"
     network_id = openstack_networking_network_v2.test_network_01.id
     admin_state_up = "true"
-    # security_group_ids = [openstack_compute_secgroup_v2.test_secgroup_01.id,openstack_compute_secgroup_v2.test_secgroup_03.id]
+    security_group_ids = [openstack_compute_secgroup_v2.test_secgroup_01.id,openstack_compute_secgroup_v2.test_secgroup_03.id]
     fixed_ip {
         subnet_id = openstack_networking_subnet_v2.test_subnet_01.id
         ip_address = "{{ item.ip }}"
